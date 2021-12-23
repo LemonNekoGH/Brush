@@ -1,22 +1,19 @@
-
 plugins {
-    application // <1>
+    application
 }
 
 repositories {
-    mavenCentral() // <2>
+    mavenCentral()
 }
 
 dependencies {
-    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2") // <3>
-
-    implementation("com.google.guava:guava:30.1.1-jre") // <4>
+    testImplementation("org.junit.jupiter:junit-jupiter:5.7.2")
 }
 
-application {
-    mainClass.set("demo.App") // <5>
+tasks.named<JavaCompile>("compileJava") {
+    options.encoding = "UTF-8"
 }
 
 tasks.named<Test>("test") {
-    useJUnitPlatform() // <6>
+    useJUnitPlatform()
 }
